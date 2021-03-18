@@ -11,8 +11,7 @@ public class Contact {
     public String name;
     public String adress;
 
-    public Contact(int id, String name, String adress) {
-        this.id = id;
+    public Contact(String name, String adress) {
         this.name = name;
         this.adress = adress;
     }
@@ -25,8 +24,16 @@ public class Contact {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAdress() {
+        return adress;
     }
 
     public void setAdress(String adress) {
