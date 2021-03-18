@@ -19,12 +19,5 @@ public class AdressbookApplication {
 
 
     public void run(String... args) throws Exception {
-        Contact one = new Contact(1, "Tobias", "Gatan");
-        Contact two = new Contact(2, "erik", "Gatan");
-        Contact three = new Contact(3, "daniel", "Gatan");
-
-        contactRepository.save(one);
-        contactRepository.save(two);
-        contactRepository.save(three);
     }
 }

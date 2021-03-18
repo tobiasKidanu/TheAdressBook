@@ -5,6 +5,8 @@ import com.example.adressbook.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ContactService {
 
@@ -21,7 +23,7 @@ public class ContactService {
     public void updateContact() {
     }
 
-    public void getAllContact() {
-
+    public List<Contact> getAllContacts() {
+        return contactRepository.findAll();
     }
 }
