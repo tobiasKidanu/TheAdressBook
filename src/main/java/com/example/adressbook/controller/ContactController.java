@@ -35,4 +35,25 @@ public class ContactController {
         List<Contact> contacts = contactService.getAllContacts();
         return contacts.toString();
     }
+
+    @RequestMapping("/request")
+    public String testRequest(){
+        return "Request mapping works";
+    }
+
+    @GetMapping("/get")
+    public String testGet() {
+        return "Get mapping works";
+    }
+
+    @PostMapping("/post")
+    public String testPost() {
+        return "Post mapping works";
+    }
+
+    @PutMapping("/put")
+    public String testPut() {
+        return "Put mapping works";
+    }
+
 }
