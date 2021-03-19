@@ -20,6 +20,12 @@ public class ContactService {
         contactRepository.insert(contact);
     }
 
+    public void addContactByName(String name) {
+        Contact contact = new Contact(null, null);
+        contact.setName(name);
+        contactRepository.insert(contact);
+    }
+
     public List<Contact> getAllContacts() {
         return contactRepository.findAll();
     }
