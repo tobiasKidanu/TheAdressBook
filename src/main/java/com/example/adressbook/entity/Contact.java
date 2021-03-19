@@ -3,24 +3,27 @@ package com.example.adressbook.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("Contacts")
+@Document("contacts")
 public class Contact {
 
     @Id
-    public int id;
+    public long id;
     public String name;
     public String adress;
+
+    public Contact() {
+    }
 
     public Contact(String name, String adress) {
         this.name = name;
         this.adress = adress;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

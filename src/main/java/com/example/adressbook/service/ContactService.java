@@ -1,5 +1,4 @@
 package com.example.adressbook.service;
-
 import com.example.adressbook.entity.Contact;
 import com.example.adressbook.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +12,17 @@ public class ContactService {
     @Autowired
     private ContactRepository contactRepository;
 
-    public Contact addContact(Contact contact) {
-        Contact insert = contactRepository.insert(contact);
-        return insert;
-    }
-
-    public void deleteContact() {
-    }
-
 
     public List<Contact> getAllContact() {
         return contactRepository.findAll();
+    }
+
+    public Contact addContact(Contact contact) {
+        Contact insertContact = contactRepository.insert(contact);
+        return insertContact;
+    }
+
+    public void deleteContact(Contact contact) {
+       contactRepository.delete(contact);
     }
 }
