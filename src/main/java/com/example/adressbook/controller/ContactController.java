@@ -27,6 +27,10 @@ public class ContactController {
     @RequestMapping("/getallcontacts")
     public String getAllContacts(){
         List<Contact> contacts = contactService.getAllContacts();
+        List<String> contactList;
+        for (Contact contact : contacts) {
+
+        }
         return contacts.toString();
     }
 }
