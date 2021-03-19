@@ -1,15 +1,10 @@
 package com.example.adressbook;
 
-import com.example.adressbook.entity.Contact;
-import com.example.adressbook.repository.ContactRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AdressbookApplication{
-
+public class AdressbookApplication {
 
 
     public static void main(String[] args) {

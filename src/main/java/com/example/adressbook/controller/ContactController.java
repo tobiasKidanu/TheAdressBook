@@ -22,6 +22,11 @@ public class ContactController {
         return contactService.getAllContact();
     }
 
+    @GetMapping(path = "/{id}")
+    public String getCertainContact(@PathVariable String id) {
+        return "The contact " + contactService.getContact(id).toString() + " is here";
+    }
+
     @PostMapping(value = "/create")
     public String addContact(@RequestBody Contact contact) {
         Contact contact1 = contactService.addContact(contact);
@@ -29,10 +34,17 @@ public class ContactController {
     }
 
     @DeleteMapping(path = "/delete/{id}")
-    public String  delete(@PathVariable String id){
+    public String delete(@PathVariable String id) {
+        if (!contactRepository.existsById(id)) {
+            throw new IllegalAccessError("Contact does not now exist");
+        }
         contactService.delete(id);
         return "the contact " + contactRepository.findById(id) + " was deleted";
     }
 
-
+    @PutMapping(path = "/update/{id}")
+    public String updateContact(@PathVariable String id, @RequestBody Contact contact) {
+        Contact contact1 = contactService.updateContact(id, contact);
+        return "The " + contact1 + " has been updated";
+    }
 }

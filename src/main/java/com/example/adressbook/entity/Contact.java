@@ -11,6 +11,15 @@ public class Contact {
     public String name;
     public String adress;
 
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", adress='" + adress + '\'' +
+                '}';
+    }
+
     public Contact() {
     }
 
