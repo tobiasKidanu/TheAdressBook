@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Contact {
 
     @Id
-    public long id;
+    public String id;
     public String name;
     public String adress;
 
@@ -19,11 +19,11 @@ public class Contact {
         this.adress = adress;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
