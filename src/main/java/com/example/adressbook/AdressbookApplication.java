@@ -19,5 +19,8 @@ public class AdressbookApplication {
 
 
     public void run(String... args) throws Exception {
+        Contact contact = new Contact("Pernilla Päron", "Fruktvägen 43");
+        contactRepository.insert(contact);
+        System.out.println("Inserted contact");
     }
 }
