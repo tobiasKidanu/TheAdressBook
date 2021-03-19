@@ -1,6 +1,7 @@
 package com.example.adressbook.controller;
 
 import com.example.adressbook.entity.Contact;
+import com.example.adressbook.repository.ContactRepository;
 import com.example.adressbook.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,9 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
+    @Autowired
+    private ContactRepository contactRepository;
+
     @GetMapping(value = "/all")
     public List<Contact> getAllContacts() {
         return contactService.getAllContacts();
@@ -23,10 +27,10 @@ public class ContactController {
         contactService.addContact(contact);
     }
 
-    @DeleteMapping(value = "/{id}")
-    public String deleteContact(@RequestBody Contact contact) {
-        contactService.deleteContact(contact);
-        return contact + " was deleted";
+    @DeleteMapping(path = "/delete/{id}")
+    public String  delete(@PathVariable String id){
+        contactService.delete(id);
+        return "the contact " + contactRepository.findById(id) + " was deleted";
     }
 
     @RequestMapping("/getallcontacts")
