@@ -1,4 +1,4 @@
-package com.example.adressbook.configuration;
+/*package com.example.adressbook.configuration;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -17,4 +17,4 @@ public class AppConfig {
         return new MongoTemplate(mongoClient(),"AddressBook");
     }
 
-}
+}*/

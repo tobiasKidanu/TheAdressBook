@@ -8,19 +8,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AdressbookApplication {
-
-    @Autowired
-    private ContactRepository contactRepository;
+public class AdressbookApplication{
 
     public static void main(String[] args) {
         SpringApplication.run(AdressbookApplication.class, args);
     }
 
-
-    public void run(String... args) throws Exception {
-        Contact contact = new Contact("Pernilla Päron", "Fruktvägen 43");
-        contactRepository.insert(contact);
-        System.out.println("Inserted contact");
-    }
 }

@@ -3,12 +3,7 @@ package com.example.adressbook.controller;
 import com.example.adressbook.entity.Contact;
 import com.example.adressbook.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,20 +12,26 @@ public class ContactController {
 
     @Autowired
     private ContactService contactService;
-/*
-    @PostMapping
-    public ResponseEntity addContact(@RequestBody Contact contact) {
+
+    @GetMapping(value = "/all")
+    public List<Contact> getAllContacts() {
+        return contactService.getAllContacts();
+    }
+
+    @PostMapping(value = "/create")
+    public void addContact(@RequestBody Contact contact) {
         contactService.addContact(contact);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
-    } */
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public String deleteContact(@RequestBody Contact contact) {
+        contactService.deleteContact(contact);
+        return contact + " was deleted";
+    }
 
     @RequestMapping("/getallcontacts")
-    public String getAllContacts(){
+    public String printAllContacts(){
         List<Contact> contacts = contactService.getAllContacts();
-        List<String> contactList;
-        for (Contact contact : contacts) {
-
-        }
         return contacts.toString();
     }
 }
