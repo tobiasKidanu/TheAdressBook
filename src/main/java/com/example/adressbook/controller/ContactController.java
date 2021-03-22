@@ -21,7 +21,7 @@ public class ContactController {
     @GetMapping(value = "/all")
     @CrossOrigin(origins = "http://localhost:4200")
     public List<Contact> getAllContacts() {
-        return contactService.getAllContact();
+        return contactService.getAllContacts();
     }
 
     @GetMapping(path = "/{id}")
