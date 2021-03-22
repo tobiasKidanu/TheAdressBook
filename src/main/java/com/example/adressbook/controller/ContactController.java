@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 public class ContactController {
 
@@ -18,6 +19,7 @@ public class ContactController {
     private ContactRepository contactRepository;
 
     @GetMapping(value = "/all")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Contact> getAllContacts() {
         return contactService.getAllContact();
     }
