@@ -18,10 +18,10 @@
     <td>{{contact.name}}</td>
     <td>{{contact.adress}}</td>
     <td>
-      <button class="btn btn-sm btn-warning">
+      <button class="btn btn-sm btn-warning" (click)="editContact(contact)">
         <i class="fa fa-search">Edit</i>
       </button>
-      <button class="btn btn-sm btn-danger">
+      <button class="btn btn-sm btn-danger" (click)="deleteContact(contact)">
         <i class="fa fa-search">Delete</i>
       </button>
     </td>

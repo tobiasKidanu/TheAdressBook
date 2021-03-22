@@ -52,22 +52,32 @@ public class ContactController {
 
     @RequestMapping("/request")
     public String testRequest(){
+        System.out.println("Reques mapping reached");
         return "Request mapping works";
     }
-
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/get")
     public String testGet() {
+        System.out.println("Get mapping reached");
         return "Get mapping works";
     }
-
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping("/post")
     public String testPost() {
+        System.out.println("Post mapping reached");
         return "Post mapping works";
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/put")
     public String testPut() {
+        System.out.println("Put mapping reached");
         return "Put mapping works";
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/delete")
+    public String testDelete() {
+        System.out.println("Delete mapping reached");
+        return "Delete mapping works";
     }
 
 }
