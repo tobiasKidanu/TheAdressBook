@@ -16,22 +16,31 @@ public class ContactService {
     @Autowired
     private ContactRepository contactRepository;
 
-    public void addContact(Contact contact) {
-        contactRepository.insert(contact);
-    }
 
-    public void addContactByName(String name) {
-        Contact contact = new Contact(null, null);
-        contact.setName(name);
-        contactRepository.insert(contact);
-    }
-
-    public List<Contact> getAllContacts() {
+    public List<Contact> getAllContact() {
         return contactRepository.findAll();
+    }
+
+    public Contact addContact(Contact contact) {
+        Contact insertContact = contactRepository.insert(contact);
+        return insertContact;
     }
 
     public void delete(String id){
         contactRepository.deleteById(id);
     }
 
+    public Contact updateContact(String id, Contact newContactInformation) {
+        Contact contact = getContact(id);
+        contact.setName(newContactInformation.getName());
+        contact.setAdress(newContactInformation.getAdress());
+        contactRepository.save(contact);
+        return contact;
+    }
+
+    public Contact getContact(String id) {
+        Optional<Contact> byId = contactRepository.findById(id);
+        Contact contact = byId.get();
+        return contact;
+    }
 }

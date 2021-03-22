@@ -3,6 +3,7 @@ package com.example.adressbook.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Document("contacts")
 public class Contact {
 
@@ -11,17 +12,37 @@ public class Contact {
     public String name;
     public String adress;
 
+    public Contact() {
+    }
+
     public Contact(String name, String adress) {
         this.name = name;
         this.adress = adress;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", adress='" + adress + '\'' +
+                '}';
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAdress() {
@@ -30,10 +51,5 @@ public class Contact {
 
     public void setAdress(String adress) {
         this.adress = adress;
-    }
-
-    @Override
-    public String toString(){
-        return this.name + " lives at " + this.adress; 
     }
 }
