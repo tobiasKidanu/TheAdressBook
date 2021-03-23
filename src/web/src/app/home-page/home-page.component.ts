@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 
 export class Contact {
   constructor(
-    public id: number,
+    public id: string,
     public name: string,
     public adress: string,
   ) {
@@ -30,11 +30,10 @@ export class HomePageComponent implements OnInit {
     this.getContacts()
   }
 
-  addContact(){
-
-    //console.log("add " + name + " " + adress);
-    this.httpClient.post(this.url + '/post', null).subscribe(
-      //response => {console.log(response);}
+  addContact(name: string, adress: string){
+   const newContact = {name: name, adress: adress};
+    this.httpClient.post(this.url + '/create',newContact).subscribe(
+      response => {console.log('New Contact added' + JSON.stringify(newContact))}
     )
   }
 

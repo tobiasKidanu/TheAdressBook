@@ -27,13 +27,13 @@
     <form>
       <div class="form-row" id="newContact">
         <div class="col">
-          <input type="text" class="form-control" placeholder="First name" id="name">
+          <input type="text" class="form-control" placeholder="First name" id="name" #name>
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Last name" id="adress">
+          <input type="text" class="form-control" placeholder="Last name" id="adress" #adress>
         </div>
         <div class="col">
-          <button class="btn btn-primary" (click)="addContact()">Submit</button>
+          <button class="btn btn-primary" (click)="addContact(name.value, adress.value)">Submit</button>
         </div>
       </div>
     </form>
