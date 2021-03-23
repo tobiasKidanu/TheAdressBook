@@ -14,7 +14,7 @@ public class AppConfig {
 
     public @Bean
     MongoTemplate mongoTemplate(){
-        return new MongoTemplate(mongoClient(),"Adressbook");
+        return new MongoTemplate(mongoClient(),"AddressBook");
     }
 
 }*/

@@ -10,6 +10,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ContactController {
 
     @Autowired
@@ -19,9 +20,9 @@ public class ContactController {
     private ContactRepository contactRepository;
 
     @GetMapping(value = "/all")
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
     public List<Contact> getAllContacts() {
-        return contactService.getAllContact();
+        return contactService.getAllContacts();
     }
 
     @GetMapping(path = "/{id}")
@@ -41,12 +42,43 @@ public class ContactController {
             throw new IllegalAccessError("Contact does not now exist");
         }
         contactService.delete(id);
-        return "the contact " + contactRepository.findById(id) + " was deleted";
+        return "the contact with id: " + id + " was deleted";
     }
 
-    @PutMapping(path = "/update/{id}")
-    public String updateContact(@PathVariable String id, @RequestBody Contact contact) {
-        Contact contact1 = contactService.updateContact(id, contact);
-        return "The " + contact1 + " has been updated";
+    @RequestMapping("/getallcontacts")
+    public String printAllContacts() {
+        List<Contact> contacts = contactService.getAllContacts();
+        return contacts.toString();
     }
+
+    @RequestMapping("/request")
+    public String testRequest(){
+        System.out.println("Reques mapping reached");
+        return "request mapping works";
+    }
+    //@CrossOrigin(origins = "http://localhost:8080")
+    @GetMapping("/get")
+    public String testGet() {
+        System.out.println("Get mapping reached");
+        return "get mapping works";
+    }
+    //@CrossOrigin(origins = "http://localhost:8080")
+    @PostMapping("/post")
+    public String testPost() {
+        System.out.println("Post mapping reached");
+        return "post mapping works";
+    }
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @PutMapping("/put")
+    public String testPut() {
+        System.out.println("Put mapping reached");
+        return "put mapping works";
+    }
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/delete")
+    public String testDelete() {
+        System.out.println("Delete mapping reached");
+        return "delete mapping works";
+    }
+
 }
