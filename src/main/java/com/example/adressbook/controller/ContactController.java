@@ -37,12 +37,12 @@ public class ContactController {
     }
 
     @DeleteMapping(path = "/delete/{id}")
-    public String delete(@PathVariable String id) {
-        if (!contactRepository.existsById(id)) {
-            throw new IllegalAccessError("Contact does not now exist");
-        }
-        contactService.delete(id);
-        return "the contact with id: " + id + " was deleted";
+    public void delete(@PathVariable String id) {
+        try {
+            contactService.delete(id);
+        } catch (Exception e) {
+            System.out.println("Ooops delete faild");
+        } 
     }
 
     @RequestMapping("/getallcontacts")
@@ -64,21 +64,18 @@ public class ContactController {
     }
     //@CrossOrigin(origins = "http://localhost:8080")
     @PostMapping("/post")
-    public String testPost() {
+    public void testPost() {
         System.out.println("Post mapping reached");
-        return "post mapping works";
     }
     //@CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/put")
-    public String testPut() {
+    public void testPut() {
         System.out.println("Put mapping reached");
-        return "put mapping works";
     }
     //@CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/delete")
-    public String testDelete() {
+    public void testDelete() {
         System.out.println("Delete mapping reached");
-        return "delete mapping works";
     }
 
 }

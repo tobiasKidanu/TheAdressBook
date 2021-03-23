@@ -17,12 +17,12 @@ export class Contact {
 })
 export class HomePageComponent implements OnInit {
 
-  contact: Contact[];
+  contacts: Contact[];
   private httpClient: HttpClient;
   private url = 'http://localhost:8080';
 
   constructor(httpClient: HttpClient) {
-    this.contact = [];
+    this.contacts = [];
     this.httpClient = httpClient;
   }
 
@@ -30,26 +30,28 @@ export class HomePageComponent implements OnInit {
     this.getContacts()
   }
 
-  addContact(){/*
-    console.log("add");
+  addContact(){
+
+    //console.log("add " + name + " " + adress);
     this.httpClient.post(this.url + '/post', null).subscribe(
-      response => {console.log(response);}
-    ) */
+      //response => {console.log(response);}
+    )
   }
 
   getContacts(){
     this.httpClient.get<any>(this.url + '/all').subscribe(
       response => {
         console.log(response);
-        this.contact = response;
+        this.contacts = response;
       }
     );
   }
 
   deleteContact(contactToDelete: Contact) {
-    console.log("delete");
-    this.httpClient.delete(this.url + '/delete').subscribe(
-      //response => {console.log(response);}
+    let contactId = contactToDelete.id;
+    console.log("delete contact with id " + contactId);
+    this.httpClient.delete(this.url + '/delete/' + contactId).subscribe(
+      response => {console.log(" Deleted contact " + response);}
     )
   }
 
