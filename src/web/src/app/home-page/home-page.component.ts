@@ -31,6 +31,13 @@ export class HomePageComponent implements OnInit {
     this.getContacts()
   }
 
+  addContact(){/*
+    console.log("add");
+    this.httpClient.post(this.url + '/post', null).subscribe(
+      response => {console.log(response);}
+    ) */
+  }
+
   getContacts(){
     this.httpClient.get<any>(this.url + '/all').subscribe(
       response => {
@@ -43,20 +50,14 @@ export class HomePageComponent implements OnInit {
   deleteContact(contactToDelete: Contact) {
     console.log("delete");
     this.httpClient.delete(this.url + '/delete').subscribe(
-      response => {console.log(response);}
+      //response => {console.log(response);}
     )
   }
-
 
   editContact(contactToEdit: Contact){
     console.log("Edit");
     this.httpClient.put(this.url + '/put', null).subscribe(
-      response => {
-        console.log(response);
-      }
-
+     // response => {console.log(response);}
     )
-
   }
-
 }
