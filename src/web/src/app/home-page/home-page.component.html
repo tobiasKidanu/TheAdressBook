@@ -24,10 +24,10 @@
     <form>
       <div class="form-row" id="newContact">
         <div class="col">
-          <input type="text" class="form-control" placeholder="First name" id="name" #name>
+          <input type="text" class="form-control" placeholder="Name" id="name" #name>
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Last name" id="adress" #adress>
+          <input type="text" class="form-control" placeholder="Address" id="adress" #adress>
         </div>
         <div class="col">
           <button class="btn btn-primary" (click)="addContact(name.value, adress.value)" (click)="refresh()">Submit</button>
