@@ -35,6 +35,7 @@ export class HomePageComponent implements OnInit {
     this.httpClient.post(this.url + '/create',newContact).subscribe(
       response => {console.log('New Contact added' + JSON.stringify(newContact))}
     )
+    this.getContacts();
   }
 
   getContacts(){
@@ -52,6 +53,7 @@ export class HomePageComponent implements OnInit {
     this.httpClient.delete(this.url + '/delete/' + contactId).subscribe(
       response => {console.log(" Deleted contact " + response);}
     )
+    this.getContacts();
   }
 
   editContact(contactToEdit: Contact){
@@ -59,5 +61,6 @@ export class HomePageComponent implements OnInit {
     this.httpClient.put(this.url + '/put', null).subscribe(
      // response => {console.log(response);}
     )
+    this.getContacts();
   }
 }
