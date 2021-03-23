@@ -40,11 +40,13 @@ export class HomePageComponent implements OnInit {
     );
   }
 
-  deleteContact(contactToDelete: Contact){
-   // this.httpClient.delete(this.url + '/delete', headers.none);
+  deleteContact(contactToDelete: Contact) {
     console.log("delete");
-
+    this.httpClient.delete(this.url + '/delete').subscribe(
+      response => {console.log(response);}
+    )
   }
+
 
   editContact(contactToEdit: Contact){
     console.log("Edit");

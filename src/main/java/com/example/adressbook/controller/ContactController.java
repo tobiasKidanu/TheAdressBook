@@ -10,6 +10,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ContactController {
 
     @Autowired
@@ -19,7 +20,7 @@ public class ContactController {
     private ContactRepository contactRepository;
 
     @GetMapping(value = "/all")
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
     public List<Contact> getAllContacts() {
         return contactService.getAllContacts();
     }
@@ -55,25 +56,25 @@ public class ContactController {
         System.out.println("Reques mapping reached");
         return "Request mapping works";
     }
-    @CrossOrigin(origins = "http://localhost:8080")
+    //@CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/get")
     public String testGet() {
         System.out.println("Get mapping reached");
         return "Get mapping works";
     }
-    @CrossOrigin(origins = "http://localhost:8080")
+    //@CrossOrigin(origins = "http://localhost:8080")
     @PostMapping("/post")
     public String testPost() {
         System.out.println("Post mapping reached");
         return "Post mapping works";
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/put")
     public String testPut() {
         System.out.println("Put mapping reached");
         return "Put mapping works";
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/delete")
     public String testDelete() {
         System.out.println("Delete mapping reached");
