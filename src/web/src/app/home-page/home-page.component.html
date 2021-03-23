@@ -1,33 +1,28 @@
 <div class="container">
   <div class="border">
-    <button type="button" class="btn btn-dark">
-      <span class="badge badge-secondary">New Contact</span>
-    </button>
-    <span class="border border-white">
-<table class="table table-dark">
-  <thead>
-  <tr>
-    <th scope="col">Id</th>
-    <th scope="col">Name</th>
-    <th scope="col">Adress</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let contact of contact">
-    <td>{{contact.id}}</td>
-    <td>{{contact.name}}</td>
-    <td>{{contact.adress}}</td>
-    <td>
-      <button class="btn btn-sm btn-warning">
-        <i class="fa fa-search">Edit</i>
-      </button>
-      <button class="btn btn-sm btn-danger">
-        <i class="fa fa-search">Delete</i>
-      </button>
-    </td>
-  </tr>
-  </tbody>
-</table>
-      </span>
+    <button class="btn btn-md btn-outline-primary">
+      <i class="fa fa-user"></i>New Contact</button>
   </div>
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Adress</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contact of contact">
+      <td><span>{{contact.id}}</span></td>
+      <td><span>{{contact.name}}</span></td>
+      <td><span>{{contact.adress}}</span></td>
+      <td>
+        <button class="btn btn-sm btn-warning">
+          <i class="fa fa-edit"></i>Edit</button>
+        <button class="btn btn-sm btn-danger">
+          <i class="fa fa-remove"></i>Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>

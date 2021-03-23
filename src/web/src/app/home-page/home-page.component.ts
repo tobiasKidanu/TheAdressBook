@@ -17,8 +17,8 @@ export class Contact {
 })
 export class HomePageComponent implements OnInit {
 
-  contact: Contact[];
-  private httpClient: HttpClient;
+  public contact: Contact[];
+  public httpClient: HttpClient;
 
   constructor(httpClient: HttpClient) {
     this.contact = [];
@@ -37,5 +37,4 @@ export class HomePageComponent implements OnInit {
       }
     );
   }
-
 }
