@@ -14,8 +14,8 @@
     <td>{{contact.name}}</td>
     <td>{{contact.adress}}</td>
     <td>
-      <button class="btn btn-sm btn-danger" (click)="deleteContact(contact)" (click)="refresh()">
-        <i class="fa fa-search">Delete</i>
+      <button class="btn btn-sm btn-danger" (click)="deleteContact(contact)">
+        Delete
       </button>
     </td>
   </tr>
@@ -30,7 +30,7 @@
           <input type="text" class="form-control" placeholder="Address" id="adress" #adress>
         </div>
         <div class="col">
-          <button class="btn btn-primary" (click)="addContact(name.value, adress.value)" (click)="refresh()">Submit</button>
+          <button class="btn btn-primary" (click)="addContact(name.value, adress.value)">Submit</button>
         </div>
       </div>
     </form>
@@ -40,3 +40,4 @@
 </table>
   </div>
 </div>
+

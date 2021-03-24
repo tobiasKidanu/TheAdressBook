@@ -32,9 +32,8 @@ export class HomePageComponent implements OnInit {
 
   addContact(name: string, adress: string){
    const newContact = {name: name, adress: adress};
-    this.httpClient.post(this.url + '/create',newContact).subscribe(
-      response => {console.log('New Contact added' + JSON.stringify(newContact))}
-    )
+ //   this.httpClient.post(this.url + '/create',newContact).subscribe(
+    this.httpClient.post<Promise<Contact>>(this.url + '/create',newContact).toPromise().then(result => this.getContacts());
   }
 
   getContacts(){

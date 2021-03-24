@@ -16,9 +16,6 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
-    @Autowired
-    private ContactRepository contactRepository;
-
     @GetMapping(value = "/all")
     //@CrossOrigin(origins = "http://localhost:4200")
     public List<Contact> getAllContacts() {
@@ -30,10 +27,9 @@ public class ContactController {
         return "The contact " + contactService.getContact(id).toString() + " is here";
     }
 
-    @PostMapping(value = "/create")
-    public String addContact(@RequestBody Contact contact) {
-        Contact contact1 = contactService.addContact(contact);
-        return "Contact was added!!  " + contact1;
+    @PostMapping(value = "")
+    public Contact addContact(@RequestBody Contact contact) {
+        return contactService.addContact(contact);
     }
 
     @DeleteMapping(path = "/delete/{id}")

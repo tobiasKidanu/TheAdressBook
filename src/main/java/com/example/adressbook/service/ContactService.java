@@ -22,9 +22,7 @@ public class ContactService {
     }
 
     public Contact addContact(Contact contact) {
-        Contact insertContact = contactRepository.insert(contact);
-        contactRepository.save(contact);
-        return insertContact;
+        return contactRepository.save(contact);
     }
 
     public void delete(String id){
