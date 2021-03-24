@@ -1,43 +1,48 @@
 <div class="container">
   <div class="border">
-<table class="table table-dark">
-  <thead>
-  <tr>
-    <th scope="col">Id</th>
-    <th scope="col">Name</th>
-    <th scope="col">Adress</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let contact of contacts">
-    <td>{{contact.id}}</td>
-    <td>{{contact.name}}</td>
-    <td>{{contact.adress}}</td>
-    <td>
-      <button class="btn btn-sm btn-danger" (click)="deleteContact(contact)">
-        Delete
-      </button>
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <form>
-      <div class="form-row" id="newContact">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Name" id="name" #name>
-        </div>
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Address" id="adress" #adress>
-        </div>
-        <div class="col">
-          <button class="btn btn-primary" (click)="addContact(name.value, adress.value)">Submit</button>
-        </div>
-      </div>
-    </form>
-    </td>
-  </tr>
-  </tbody>
-</table>
+    <table>
+      <tr>
+        <td>
+          <form>
+            <div class="form-row" id="newContact">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Name" id="name" #name>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Address" id="adress" #adress>
+              </div>
+              <div class="col">
+                <button class="btn btn-primary" (click)="addContact(name.value, adress.value)">Submit</button>
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+    </table>
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Adress</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let contact of contacts">
+        <td>{{contact.id}}</td>
+        <td>{{contact.name}}</td>
+        <td>{{contact.adress}}</td>
+        <td>
+          <button class="btn btn-sm btn-warning" (click)="editContact(contact)">
+            Edit
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="deleteContact(contact)">
+            Delete
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 

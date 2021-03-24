@@ -10,30 +10,31 @@ import {Observable} from "rxjs";
 export class ContactService {
 
   private httpClient: HttpClient;
-  private url = 'http://localhost:8080';
+  private url = 'http://localhost:8080/contacts';
 
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
   }
 
-  addContact(name: string, adress: string){
+  addContact(name: string, adress: string): Observable<any>{
     const newContact = {name: name, adress: adress};
     //   this.httpClient.post(this.url + '/create',newContact).subscribe(
-    this.httpClient.post<Promise<Contact>>(this.url + '/create',newContact).toPromise().then();
+    return this.httpClient.post<Promise<Contact>>(this.url + '/create',newContact);
   }
 
   getContacts(): Observable<any> {
     return this.httpClient.get(this.url + '/all');
   }
 
-  deleteContact(contactToDelete: Contact) {
+  deleteContact(contactToDelete: Contact): Observable<any> {
     let contactId = contactToDelete.id;
     console.log("delete contact with id " + contactId);
-    this.httpClient.delete(this.url + '/delete/' + contactId).toPromise().then();
+    return this.httpClient.delete(this.url + '/delete/' + contactId);
   }
 
   editContact(contactToEdit: Contact){
-    console.log("Edit");
-    this.httpClient.put(this.url + '/put', null).toPromise().then();
+    let contactId = contactToEdit.id;
+    console.log("Editing contact" + contactId);
+    this.httpClient.put(this.url + '/update/' + contactId,contactToEdit).toPromise().then();
   }
 }

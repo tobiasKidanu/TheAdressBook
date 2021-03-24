@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ContactService} from '../contact.service';
 import {Contact} from '../contact';
+import {readSpanComment} from "@angular/compiler-cli/src/ngtsc/typecheck/src/comments";
 
 @Component({
   selector: 'app-home-page',
@@ -22,18 +23,19 @@ export class HomePageComponent implements OnInit {
   }
 
   getContacts() {
-    this.contactService.getContacts().subscribe(
-      response => {
-        this.contacts = response
-      }
-    );
+    this.contactService.getContacts().subscribe(response => {this.contacts = response});
   }
 
   addContact(name: string, adress: string) {
-    this.contactService.addContact(name, adress);
+    this.contactService.addContact(name, adress).toPromise().then(response => {this.getContacts()});
   }
 
   deleteContact(contactToDelete: Contact) {
-    this.contactService.deleteContact(contactToDelete);
+    this.contactService.deleteContact(contactToDelete).toPromise().then(respone => {this.getContacts()})
+
+  }
+
+  editContact(contactToEdit: Contact){
+    this.contactService.editContact(contactToEdit);
   }
 }

@@ -30,11 +30,10 @@ public class ContactService {
     }
 
     public Contact updateContact(String id, Contact newContactInformation) {
-        Contact contact = getContact(id);
-        contact.setName(newContactInformation.getName());
-        contact.setAdress(newContactInformation.getAdress());
-        contactRepository.save(contact);
-        return contact;
+        Contact contactToUpdate = getContact(id);
+        contactToUpdate.setName(newContactInformation.getName());
+        contactToUpdate.setAdress(newContactInformation.getAdress());
+        return contactRepository.save(contactToUpdate);
     }
 
     public Contact getContact(String id) {
