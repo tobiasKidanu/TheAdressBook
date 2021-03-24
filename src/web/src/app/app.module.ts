@@ -7,6 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import {HttpClientModule} from "@angular/common/http";
 import {NgbModal,NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from "@angular/forms";
+import {ContactService} from "./contact.service";
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import {FormsModule} from "@angular/forms";
     FormsModule,
     NgbModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ContactService],
+  bootstrap: [HomePageComponent]
 })
 export class AppModule { }

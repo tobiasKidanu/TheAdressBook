@@ -10,7 +10,7 @@ import {Contact} from '../contact';
 })
 export class HomePageComponent implements OnInit {
   contactService: ContactService;
-  contacts: Contact[];
+  public contacts: Contact[];
 
   constructor(httpClient: HttpClient, contactService: ContactService) {
     this.contactService = contactService;
@@ -21,7 +21,19 @@ export class HomePageComponent implements OnInit {
     this.getContacts();
   }
 
-  getContacts(){
-    this.contacts = this.contactService.getContacts();
+  getContacts() {
+    this.contactService.getContacts().subscribe(
+      response => {
+        this.contacts = response
+      }
+    );
+  }
+
+  addContact(name: string, adress: string) {
+    this.contactService.addContact(name, adress);
+  }
+
+  deleteContact(contactToDelete: Contact) {
+    this.contactService.deleteContact(contactToDelete);
   }
 }

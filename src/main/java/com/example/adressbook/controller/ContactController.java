@@ -27,7 +27,7 @@ public class ContactController {
         return "The contact " + contactService.getContact(id).toString() + " is here";
     }
 
-    @PostMapping(value = "")
+    @PostMapping(value = "/create")
     public Contact addContact(@RequestBody Contact contact) {
         return contactService.addContact(contact);
     }
