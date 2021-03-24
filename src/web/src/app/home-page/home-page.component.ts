@@ -48,19 +48,11 @@ export class HomePageComponent implements OnInit {
   deleteContact(contactToDelete: Contact) {
     let contactId = contactToDelete.id;
     console.log("delete contact with id " + contactId);
-    this.httpClient.delete(this.url + '/delete/' + contactId).subscribe(
-      response => {console.log(" Deleted contact " + response);}
-    )
+    this.httpClient.delete(this.url + '/delete/' + contactId).toPromise().then(result => this.getContacts());
   }
 
   editContact(contactToEdit: Contact){
     console.log("Edit");
-    this.httpClient.put(this.url + '/put', null).subscribe(
-     // response => {console.log(response);}
-    )
-  }
-
-  refresh(): void {
-    window.location.reload();
+    this.httpClient.put(this.url + '/put', null).toPromise().then(result => this.getContacts());
   }
 }
