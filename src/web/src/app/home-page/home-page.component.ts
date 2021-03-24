@@ -1,14 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-
-export class Contact {
-  constructor(
-    public id: string,
-    public name: string,
-    public adress: string,
-  ) {
-  }
-}
+import {ContactService} from '../contact.service';
+import {Contact} from '../contact';
 
 @Component({
   selector: 'app-home-page',
@@ -16,43 +9,19 @@ export class Contact {
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
+  contactService: ContactService;
   contacts: Contact[];
-  private httpClient: HttpClient;
-  private url = 'http://localhost:8080';
 
-  constructor(httpClient: HttpClient) {
+  constructor(httpClient: HttpClient, contactService: ContactService) {
+    this.contactService = contactService;
     this.contacts = [];
-    this.httpClient = httpClient;
   }
 
   ngOnInit(): void {
-    this.getContacts()
-  }
-
-  addContact(name: string, adress: string){
-   const newContact = {name: name, adress: adress};
- //   this.httpClient.post(this.url + '/create',newContact).subscribe(
-    this.httpClient.post<Promise<Contact>>(this.url + '/create',newContact).toPromise().then(result => this.getContacts());
+    this.getContacts();
   }
 
   getContacts(){
-    this.httpClient.get<any>(this.url + '/all').subscribe(
-      response => {
-        console.log(response);
-        this.contacts = response;
-      }
-    );
-  }
-
-  deleteContact(contactToDelete: Contact) {
-    let contactId = contactToDelete.id;
-    console.log("delete contact with id " + contactId);
-    this.httpClient.delete(this.url + '/delete/' + contactId).toPromise().then(result => this.getContacts());
-  }
-
-  editContact(contactToEdit: Contact){
-    console.log("Edit");
-    this.httpClient.put(this.url + '/put', null).toPromise().then(result => this.getContacts());
+    this.contacts = this.contactService.getContacts();
   }
 }
