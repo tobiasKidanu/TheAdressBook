@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ContactService} from '../contact.service';
 import {Contact} from '../contact';
-import {readSpanComment} from "@angular/compiler-cli/src/ngtsc/typecheck/src/comments";
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
@@ -12,6 +12,11 @@ import {readSpanComment} from "@angular/compiler-cli/src/ngtsc/typecheck/src/com
 export class HomePageComponent implements OnInit {
   contactService: ContactService;
   public contacts: Contact[];
+
+  @Output() userEdited = new EventEmitter<string>();
+  @ViewChild('editName') editName: any;
+  @ViewChild('editAdress') editAdress: any;
+
 
   constructor(httpClient: HttpClient, contactService: ContactService) {
     this.contactService = contactService;
@@ -44,9 +49,9 @@ export class HomePageComponent implements OnInit {
     //this.contactService.editContact(contactToEdit)
   }
 
-  updateContact(contactToUpdate: Contact, name: string, adress: string) {
-    contactToUpdate.name = name;
-    contactToUpdate.adress = adress;
+  updateContact(contactToUpdate: Contact) {
+    contactToUpdate.name = this.editName.nativeElement.value;
+    contactToUpdate.adress = this.editAdress.nativeElement.value;
     contactToUpdate.edit = false;
     this.contactService.updateContact(contactToUpdate);
   }

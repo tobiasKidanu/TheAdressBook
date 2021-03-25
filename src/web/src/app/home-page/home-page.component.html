@@ -31,19 +31,19 @@
       <tr *ngFor="let contact of contacts">
         <td>{{contact.id}}</td>
         <td #random>
-          <input type="text" id="editName" *ngIf="contact.edit" value="{{contact.name}}">
+          <input type="text" id="editName" *ngIf="contact.edit" value="{{contact.name}}" #editName>
           <p *ngIf="!contact.edit">
             {{contact.name}}
           </p>
         </td>
         <td>
-          <input type="text" id="editAdress" *ngIf="contact.edit" value="{{contact.adress}}">
+          <input type="text" id="editAdress" *ngIf="contact.edit" value="{{contact.adress}}" #editAdress>
           <p *ngIf="!contact.edit">
             {{contact.adress}}
           </p>
         </td>
         <td>
-          <button *ngIf="contact.edit" class="btn btn-sm btn-success">
+          <button *ngIf="contact.edit" class="btn btn-sm btn-success" (click)="updateContact(contact)">
             Update
           </button>
           <button *ngIf="contact.edit" class="btn btn-sm btn-warning" (click)="cancelEditContact(contact)">
