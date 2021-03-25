@@ -36,6 +36,7 @@ export class HomePageComponent implements OnInit {
   }
 
   editContact(contactToEdit: Contact){
-    this.contactService.editContact(contactToEdit);
+    contactToEdit.edit = true;
+    //this.contactService.editContact(contactToEdit)
   }
 }

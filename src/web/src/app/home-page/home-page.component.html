@@ -30,8 +30,18 @@
       <tbody>
       <tr *ngFor="let contact of contacts">
         <td>{{contact.id}}</td>
-        <td>{{contact.name}}</td>
-        <td>{{contact.adress}}</td>
+        <td>
+          <input type="text" *ngIf="contact.edit; else elseblock">
+          <ng-template #elseblock>
+            {{contact.name}}
+          </ng-template>
+        </td>
+        <td>
+          <input type="text" *ngIf="contact.edit; else elseblock">
+          <ng-template #elseblock>
+            {{contact.adress}}
+          </ng-template>
+        </td>
         <td>
           <button class="btn btn-sm btn-warning" (click)="editContact(contact)">
             Edit
