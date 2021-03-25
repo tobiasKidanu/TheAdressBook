@@ -30,17 +30,17 @@
       <tbody>
       <tr *ngFor="let contact of contacts">
         <td>{{contact.id}}</td>
-        <td>
-          <input type="text" id="editName" *ngIf="contact.edit; else elseblock" #editName>
-          <ng-template #elseblock>
+        <td #random>
+          <input type="text" id="editName" *ngIf="contact.edit" value="{{contact.name}}">
+          <p *ngIf="!contact.edit">
             {{contact.name}}
-          </ng-template>
+          </p>
         </td>
         <td>
-          <input type="text" id="editAdress" *ngIf="contact.edit; else adressBlock" #editAdress>
-          <ng-template #adressBlock>
+          <input type="text" id="editAdress" *ngIf="contact.edit" value="{{contact.adress}}">
+          <p *ngIf="!contact.edit">
             {{contact.adress}}
-          </ng-template>
+          </p>
         </td>
         <td>
           <button *ngIf="contact.edit" class="btn btn-sm btn-success">
