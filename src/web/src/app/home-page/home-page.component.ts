@@ -35,6 +35,10 @@ export class HomePageComponent implements OnInit {
 
   }
 
+  cancelEditContact(contactToCancelEdit: Contact) {
+    contactToCancelEdit.edit = false;
+  }
+
   editContact(contactToEdit: Contact){
     contactToEdit.edit = true;
     //this.contactService.editContact(contactToEdit)

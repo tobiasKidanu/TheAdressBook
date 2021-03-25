@@ -37,16 +37,22 @@
           </ng-template>
         </td>
         <td>
-          <input type="text" *ngIf="contact.edit; else elseblock">
-          <ng-template #elseblock>
+          <input type="text" *ngIf="contact.edit; else adress">
+          <ng-template #adress>
             {{contact.adress}}
           </ng-template>
         </td>
         <td>
-          <button class="btn btn-sm btn-warning" (click)="editContact(contact)">
+          <button *ngIf="contact.edit" class="btn btn-sm btn-success" >
+            Update
+          </button>
+          <button *ngIf="contact.edit" class="btn btn-sm btn-success" (click)="cancelEditContact(contact)">
+            Cancel
+          </button>
+          <button *ngIf="!contact.edit" class="btn btn-sm btn-warning" (click)="editContact(contact)">
             Edit
           </button>
-          <button class="btn btn-sm btn-danger" (click)="deleteContact(contact)">
+          <button *ngIf="!contact.edit" class="btn btn-sm btn-danger" (click)="deleteContact(contact)">
             Delete
           </button>
         </td>
