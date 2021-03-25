@@ -32,7 +32,7 @@ export class ContactService {
     return this.httpClient.delete(this.url + '/delete/' + contactId);
   }
 
-  editContact(contactToEdit: Contact){
+  updateContact(contactToEdit: Contact){
     let contactId = contactToEdit.id;
     console.log("Editing contact" + contactId);
     this.httpClient.put(this.url + '/update/' + contactId,contactToEdit).toPromise().then();

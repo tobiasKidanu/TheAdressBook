@@ -43,4 +43,11 @@ export class HomePageComponent implements OnInit {
     contactToEdit.edit = true;
     //this.contactService.editContact(contactToEdit)
   }
+
+  updateContact(contactToUpdate: Contact, name: string, adress: string) {
+    contactToUpdate.name = name;
+    contactToUpdate.adress = adress;
+    contactToUpdate.edit = false;
+    this.contactService.updateContact(contactToUpdate);
+  }
 }

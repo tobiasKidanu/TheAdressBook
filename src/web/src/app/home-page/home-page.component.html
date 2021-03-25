@@ -4,7 +4,7 @@
       <tr>
         <td>
           <form>
-            <div class="form-row" id="newContact">
+            <div class="form-row">
               <div class="col">
                 <input type="text" class="form-control" placeholder="Name" id="name" #name>
               </div>
@@ -31,22 +31,22 @@
       <tr *ngFor="let contact of contacts">
         <td>{{contact.id}}</td>
         <td>
-          <input type="text" *ngIf="contact.edit; else elseblock">
+          <input type="text" id="editName" *ngIf="contact.edit; else elseblock" #editName>
           <ng-template #elseblock>
             {{contact.name}}
           </ng-template>
         </td>
         <td>
-          <input type="text" *ngIf="contact.edit; else adress">
-          <ng-template #adress>
+          <input type="text" id="editAdress" *ngIf="contact.edit; else adressBlock" #editAdress>
+          <ng-template #adressBlock>
             {{contact.adress}}
           </ng-template>
         </td>
         <td>
-          <button *ngIf="contact.edit" class="btn btn-sm btn-success" >
+          <button *ngIf="contact.edit" class="btn btn-sm btn-success">
             Update
           </button>
-          <button *ngIf="contact.edit" class="btn btn-sm btn-success" (click)="cancelEditContact(contact)">
+          <button *ngIf="contact.edit" class="btn btn-sm btn-warning" (click)="cancelEditContact(contact)">
             Cancel
           </button>
           <button *ngIf="!contact.edit" class="btn btn-sm btn-warning" (click)="editContact(contact)">
