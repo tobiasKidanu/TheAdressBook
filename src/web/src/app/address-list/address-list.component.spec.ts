@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddressListComponent } from './home-page.component';
+import { AddressListComponent } from './address-list.component';
 
-describe('HomePageComponent', () => {
+describe('AddressLasComponent', () => {
   let component: AddressListComponent;
   let fixture: ComponentFixture<AddressListComponent>;
 

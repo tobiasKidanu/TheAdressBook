@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { AddressListComponent } from './address-list/address-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {NgbModal,NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -13,7 +12,6 @@ import { AddressSubmitComponent } from './address-submit/address-submit.componen
 
 @NgModule({
   declarations: [
-    AppComponent,
     AddressListComponent,
     AddressSubmitComponent
   ],
@@ -25,6 +23,6 @@ import { AddressSubmitComponent } from './address-submit/address-submit.componen
     NgbModule,
   ],
   providers: [ContactService],
-  bootstrap: [AddressListComponent]
+  bootstrap: [AddressListComponent, AddressSubmitComponent]
 })
 export class AppModule { }

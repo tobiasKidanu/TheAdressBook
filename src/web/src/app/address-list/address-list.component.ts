@@ -1,14 +1,19 @@
-import {Component, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Injectable, OnInit, Output, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ContactService} from '../contact.service';
 import {Contact} from '../contact';
 import { EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'app-address-list',
   templateUrl: 'address-list.component.html',
   styleUrls: ['./address-list.component.css']
 })
+
+@Injectable({
+  providedIn: 'root'
+})
+
 export class AddressListComponent implements OnInit {
   contactService: ContactService;
   public contacts: Contact[];
@@ -29,10 +34,6 @@ export class AddressListComponent implements OnInit {
 
   getContacts() {
     this.contactService.getContacts().subscribe(response => {this.contacts = response});
-  }
-
-  addContact(name: string, adress: string) {
-    this.contactService.addContact(name, adress).toPromise().then(response => {this.getContacts()});
   }
 
   deleteContact(contactToDelete: Contact) {

@@ -1,1 +1,19 @@
-<p>address-submit works!</p>
+<table>
+  <tr>
+    <td>
+      <form>
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Name" id="name" #name>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Address" id="adress" #adress>
+          </div>
+          <div class="col">
+            <button class="btn btn-primary" (click)="addContact(name.value, adress.value)">Submit</button>
+          </div>
+        </div>
+      </form>
+    </td>
+  </tr>
+</table>
