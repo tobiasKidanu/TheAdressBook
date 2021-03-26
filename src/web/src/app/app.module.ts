@@ -8,12 +8,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgbModal,NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from "@angular/forms";
 import {ContactService} from "./contact.service";
+import { AddressSubmitComponent } from './address-submit/address-submit.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddressListComponent
+    AddressListComponent,
+    AddressSubmitComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import {Component, OnInit, Output, ViewChild} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 import {ContactService} from '../contact.service';
 import {Contact} from '../contact';
 import { EventEmitter } from '@angular/core';
@@ -7,7 +7,7 @@ import { EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-home-page',
   templateUrl: 'address-list.component.html',
-  styleUrls: ['./home-page.component.css']
+  styleUrls: ['./address-list.component.css']
 })
 export class AddressListComponent implements OnInit {
   contactService: ContactService;
