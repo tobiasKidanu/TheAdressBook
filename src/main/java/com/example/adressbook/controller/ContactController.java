@@ -16,7 +16,7 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
-    @GetMapping(value = "/all")
+    @GetMapping(value = "")
     public List<Contact> getAllContacts() {
         return contactService.getAllContacts();
     }
@@ -26,12 +26,12 @@ public class ContactController {
         return "The contact " + contactService.getContact(id).toString() + " is here";
     }
 
-    @PostMapping(value = "/create")
+    @PostMapping(value = "")
     public Contact addContact(@RequestBody Contact contact) {
         return contactService.addContact(contact);
     }
 
-    @DeleteMapping(path = "/delete/{id}")
+    @DeleteMapping(path = "/{id}")
     public void delete(@PathVariable String id) {
         try {
             contactService.delete(id);
@@ -40,7 +40,7 @@ public class ContactController {
         }
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public Contact updateExistingContact(@PathVariable String id, @RequestBody Contact contact) {
         return contactService.updateContact(id, contact);
     }
