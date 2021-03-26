@@ -6,10 +6,10 @@ import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
-  templateUrl: 'home-page.component.html',
+  templateUrl: 'address-list.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent implements OnInit {
+export class AddressListComponent implements OnInit {
   contactService: ContactService;
   public contacts: Contact[];
 
