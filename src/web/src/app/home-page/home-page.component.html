@@ -30,7 +30,7 @@
       <tbody>
       <tr *ngFor="let contact of contacts">
         <td>{{contact.id}}</td>
-        <td #random>
+        <td>
           <input type="text" id="editName" *ngIf="contact.edit" value="{{contact.name}}" #editName>
           <p *ngIf="!contact.edit">
             {{contact.name}}
