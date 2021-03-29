@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { ContactService} from "../contact.service";
 import { Contact} from "../contact";
 import {AddressListComponent} from "../address-list/address-list.component";
@@ -10,19 +10,23 @@ import {AddressListComponent} from "../address-list/address-list.component";
 })
 export class AddressSubmitComponent implements OnInit {
 
-  private contactService: ContactService;
-  private adressListComponent: AddressListComponent;
+  @Output() updateEvent = new EventEmitter<any>();
 
-  constructor(contactService: ContactService, adressListComponent: AddressListComponent) {
+  private contactService: ContactService;
+
+  constructor(contactService: ContactService) {
     this.contactService = contactService;
-    this.adressListComponent = adressListComponent;
   }
 
   ngOnInit(): void {
   }
 
   addContact(name: string, adress: string) {
-    this.contactService.addContact(name, adress).toPromise().then(response => {this.adressListComponent.getContacts()});
+    this.contactService.addContact(name, adress).subscribe(
+      response => {
+        this.updateEvent.emit();
+      }
+    );
   }
 
 

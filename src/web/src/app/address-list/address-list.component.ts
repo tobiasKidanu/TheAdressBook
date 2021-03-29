@@ -10,15 +10,11 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./address-list.component.css']
 })
 
-@Injectable({
-  providedIn: 'root'
-})
-
 export class AddressListComponent implements OnInit {
   contactService: ContactService;
   public contacts: Contact[];
 
-  @Output() userEdited = new EventEmitter<string>();
+  //@Output() userEdited = new EventEmitter<string>();
   @ViewChild('editName') editName: any;
   @ViewChild('editAdress') editAdress: any;
 

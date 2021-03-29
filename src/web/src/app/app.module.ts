@@ -23,6 +23,6 @@ import { AddressSubmitComponent } from './address-submit/address-submit.componen
     NgbModule,
   ],
   providers: [ContactService],
-  bootstrap: [AddressListComponent, AddressSubmitComponent]
+  bootstrap: [AddressListComponent]
 })
 export class AppModule { }
