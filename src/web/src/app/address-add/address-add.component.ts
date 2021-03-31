@@ -5,10 +5,10 @@ import {AddressListComponent} from "../address-list/address-list.component";
 
 @Component({
   selector: 'app-address-submit',
-  templateUrl: './address-submit.component.html',
-  styleUrls: ['./address-submit.component.css']
+  templateUrl: './address-add.component.html',
+  //styleUrls: ['./address-add.component.css']
 })
-export class AddressSubmitComponent implements OnInit {
+export class AddressAddComponent implements OnInit {
 
   @Output() updateEvent = new EventEmitter<any>();
 
