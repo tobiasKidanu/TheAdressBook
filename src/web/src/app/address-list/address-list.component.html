@@ -11,13 +11,13 @@
       <tbody>
       <tr *ngFor="let contact of contacts">
         <td>
-          <input type="text" id="editName" *ngIf="contact.edit" value="{{contact.name}}" #editName>
+          <input type="text" id="editName" *ngIf="contact.edit" [(ngModel)]="contact.name" placeholder="editName" #editName>
           <p *ngIf="!contact.edit">
             {{contact.name}}
           </p>
         </td>
         <td>
-          <input type="text" id="editAdress" *ngIf="contact.edit" value="{{contact.adress}}" #editAdress>
+          <input type="text" id="editAdress" *ngIf="contact.edit" [(ngModel)]="contact.adress" placeholder="editAdress" #editAdress>
           <p *ngIf="!contact.edit">
             {{contact.adress}}
           </p>

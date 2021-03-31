@@ -1,8 +1,7 @@
-import {Component, Injectable, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ContactService} from '../contact.service';
 import {Contact} from '../contact';
-import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-address-list',
@@ -13,11 +12,6 @@ import { EventEmitter } from '@angular/core';
 export class AddressListComponent implements OnInit {
   contactService: ContactService;
   public contacts: Contact[];
-
-  //@Output() userEdited = new EventEmitter<string>();
-  @ViewChild('editName') editName: any;
-  @ViewChild('editAdress') editAdress: any;
-
 
   constructor(httpClient: HttpClient, contactService: ContactService) {
     this.contactService = contactService;
@@ -43,12 +37,9 @@ export class AddressListComponent implements OnInit {
 
   editContact(contactToEdit: Contact){
     contactToEdit.edit = true;
-    //this.contactService.editContact(contactToEdit)
   }
 
   updateContact(contactToUpdate: Contact) {
-    contactToUpdate.name = this.editName.nativeElement.value;
-    contactToUpdate.adress = this.editAdress.nativeElement.value;
     contactToUpdate.edit = false;
     this.contactService.updateContact(contactToUpdate);
   }
