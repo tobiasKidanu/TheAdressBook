@@ -7,11 +7,13 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgbModal,NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from "@angular/forms";
 import {ContactService} from "./contact.service";
-import { AddressSubmitComponent } from './address-submit/address-submit.component';
+import { AddressSubmitComponent } from './address-add/address-submit.component';
+import {AppComponent} from "./app.component";
 
 
 @NgModule({
   declarations: [
+    AppComponent,
     AddressListComponent,
     AddressSubmitComponent
   ],
@@ -23,6 +25,6 @@ import { AddressSubmitComponent } from './address-submit/address-submit.componen
     NgbModule,
   ],
   providers: [ContactService],
-  bootstrap: [AddressListComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
